@@ -12,6 +12,8 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
+                            <a href="{{ route('export-sewa-kostum') }}" class="btn btn-success"><i class="bi bi-file-earmark-arrow-down-fill"></i>Excel</a>
+                            <a href="{{ route('export-costumes') }}" class="btn btn-danger"><i class="bi bi-file-earmark-arrow-down-fill"></i>PDF</a>
                             <div class="me-2 py-2 d-flex justify-content-end">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewWaifuModal"><i class="bi bi-plus"></i> Tambah sewaan</button>
                                 @include('admin.datakostum.modal.create')

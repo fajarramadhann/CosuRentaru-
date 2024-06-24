@@ -9,6 +9,7 @@ use App\Http\Controllers\LogSewaKostumController;
 use App\Http\Controllers\DataSewaKostumController;
 use App\Http\Controllers\Peminjam\PeminjamController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\ExportController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -33,6 +34,8 @@ Route::middleware(['auth', 'role:admin,manajemen'])->group(function () {
     Route::resource('admin/costumes', CostumeController::class)->name('costumes.index', 'costumes');
     Route::resource('admin/data-sewa-kostum', DataSewaKostumController::class)->name('data-sewa-kostum.index', 'data-sewa-kostum');
     Route::get('/admin/history-sewa-kostum', [LogSewaKostumController::class, 'index'])->name('log-sewa-kostum.index');
+    Route::get('/admin/export-data-costume-excel', [ExportController::class, 'exportCostumes'])->name('export-costumes');
+    Route::get('/admin/export-data-sewa-costume-excel', [ExportController::class, 'exportDataSewaKostum'])->name('export-sewa-kostum');
 });
 
 // Route Role Admin & Peminjam
